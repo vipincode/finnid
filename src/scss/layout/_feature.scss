@@ -1,0 +1,18 @@
+// ========================================================================
+// FEATURE
+// ========================================================================
+
+#feature {
+    @extend %top-80;
+    @extend %bottom-80;
+}
+
+.feature {
+    .heading {
+        text-align: center;
+        @extend %bar-center;
+    }
+    &-content {
+        margin-top: 80px;
+    }
+}

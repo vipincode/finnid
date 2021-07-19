@@ -1,0 +1,36 @@
+// ============================================================================
+//                 NAVBAR [ALRGE]
+// ============================================================================
+
+.banner {
+    position: relative;
+    &-bg {
+        height:100vh;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+    }
+
+    &-content {
+        article {
+            width: 90%;
+            max-width: 500px;
+            position: absolute;
+            top: 150px;
+            left: 22px;
+            @include mq('md') {
+                width: 100%;
+                left: initial;
+            }
+            p {
+                font-size: em(18px);
+                line-height: (32px/18px);
+                margin-top: em(20px, 18px);
+            }
+
+            .btn {
+                @extend %top-50;
+            }
+        }
+    }
+}

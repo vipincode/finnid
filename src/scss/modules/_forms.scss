@@ -1,0 +1,18 @@
+// ==========================================================================
+//               FORMS
+// ==========================================================================
+
+input[type="text"],
+input[type="email"],
+select,
+textarea {
+    width: 100%;
+    border: none;
+    outline: none;
+    border: 1px solid color(grey, light);
+    padding: 7px 13px;
+    font-size: em(15px);
+    line-height: em(24px, 15px);
+    border-radius: $br-radius;
+    margin: 10px 0px;
+}

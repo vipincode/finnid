@@ -1,0 +1,24 @@
+// ========================================================================
+// SM-BANNER
+// ========================================================================
+
+#sm-banner {
+    position: relative;
+    @include bg-image($bg-repeat: no-repeat, $bg-position: center, $bg-size: cover);
+    padding: 120px 20px 50px;
+
+    article {
+        @extend %top;
+        @include mq('lg') {
+            width: 70%;
+            max-width: 600px;
+        }
+
+        h1 {
+            font-size: em(36px);
+            line-height: (42px/36px);
+            font-weight: $font-weight--xl;
+            margin-top: 30px;
+        }
+    }
+}
