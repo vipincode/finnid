@@ -1,3 +1,17 @@
+// BEM MIXINS [BLOCK ELEMENT MODIFIER]
+
+@mixin e($element) {
+	&__#{$element} {
+		@content;
+	}
+}
+
+@mixin m($modifier) {
+	&--#{$modifier} {
+		@content;
+	}
+}
+
 // Background color
 
 @mixin bg-colors($map) {

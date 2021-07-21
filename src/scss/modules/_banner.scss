@@ -6,6 +6,9 @@
     position: relative;
     &-bg {
         height:100vh;
+        @include mq('xll') {
+            height: 80vh;
+        }
         background-repeat: no-repeat;
         background-position: center;
         background-size: cover;
@@ -22,10 +25,17 @@
                 width: 100%;
                 left: initial;
             }
+            @include mq('xll') {
+                top: 215px;
+                max-width: 600px;
+            }
             p {
                 font-size: em(18px);
                 line-height: (32px/18px);
                 margin-top: em(20px, 18px);
+                @include mq('xll') {
+                   font-size: em(28px)
+                }
             }
 
             .btn {

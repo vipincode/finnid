@@ -28,29 +28,39 @@
 // =================================================================
 
 .bcard {
+    position: relative;
     box-shadow: 0 0 10px rgba($black, 0.07);
+    // Images
     &-picture {
         overflow: hidden;
         img {
             transform-origin: 0 0;
+            transform: scale(1.1);
             transition: transform $transition ease-in;
             &:hover {
-                transform: scale(1.2);
+                transform: scale(1);
             }
         }
     }
+    // Card heading
     &-heading {
         display: block;
         color: color(black);
-        font-size: em(21px);
-        margin-bottom: em(15px, 21px);
+        font-size: em(18px);
+        line-height: (24px/18px);
+        margin-bottom: em(10px, 18px);
         font-weight: $font-weight--md;
         transition: color $transition ease-out;
         &:hover {
             color: color(primary);
         }
     }
-    &-contnet {
+    // Paragraph
+    p {
+        font-size: em(15px);
+    }
+    // Content[inside bcard]
+    @include e(content) {
         padding: 15px;
         span {
             display: block;
@@ -59,13 +69,63 @@
             font-weight: $font-weight--sm;
             color: color(primary);
         }
+        // Readmore buttons
         .btn--blogs {
             display: inline-block;
             color: color(primary);
-            font-size: em(17px);
-            margin-top: em(30px, 17px);
+            font-size: em(15px);
             font-weight: $font-weight--md;
             padding: 14px 0px;
+            position: relative;
+            @include p-el('after', 65px, 2px) {
+                background-color: $color--seconary;
+                left: 0;
+                margin-top: 6px;
+                transition: width $transition ease-in-out;
+            }
+            &:hover:after {
+                width: 125px;
+            } 
+        }
+        // Date, Views 
+        @include m('views') {
+            @include flexy();
+            a {
+                margin-right: 15px;
+                font-size: em(13px);
+                transition: color $transition ease-in-out;
+                &:hover {
+                    color: $color--seconary;
+                }
+            }
+            span {
+                font-size: em(13px);
+                transition: color $transition ease-in-out;
+                &:hover {
+                    color: $color--seconary;
+                }
+            }
+        }
+    }
+    // News Tags
+    .tag {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        color: $white;
+        border-radius: $br-radius;
+        @include m(blue) {
+            background-color: color(primary);
+        }
+        @include m(orange) {
+            background-color: $color--seconary;
+        }
+        span {
+            display: block;
+            font-size: em(12px);
+            text-transform: uppercase;
+            line-height: (21px/12px);
+            padding: 0px 8px;
         }
     }
     @extend %transition;

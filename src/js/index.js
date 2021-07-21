@@ -137,6 +137,14 @@ mobButton.on('click', function() {
     $('.sider').toggleClass('js__toggle');
 });
 
+$('.sider__sub').on('click', function() {
+    if($(this).find('.sider__links').hasClass('js__toggle')) {
+        $(this).find('.sider__links').removeClass('js__toggle'); 
+    } else {
+        $('.sider__links').removeClass('js__toggle');
+        $(this).find('.sider__links').addClass('js__toggle'); 
+    }
+});
 
 // ============================================================
 // COUNTER JS

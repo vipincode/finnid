@@ -13,9 +13,12 @@
         @extend %bar-center;
     } 
     &-content {
-        width: 70%;
-        max-width: 800px;
-        margin: 50px auto 0;
+        @extend %top-50;
+        @include mq('lg') {
+            width: 70%;
+            max-width: 800px;
+            margin: 50px auto 0;
+        }
         #drpId {
             cursor: pointer;
             display: block;
@@ -30,9 +33,8 @@
             color: $white;
             border-bottom: 1px solid color(primary, x-light);
             position: relative;
-            @include p-el('after', 30px, 30px) {
+            @include icons('after', 30px, 30px) {
                 content: '\f107';
-                font-family: $font-icons;
                 color: $white;
                 font-size: em(17px);
                 right: 10px;

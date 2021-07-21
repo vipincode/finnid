@@ -50,6 +50,10 @@
         font-size: em(42px);
         line-height: em(55px, 42px);
     }
+    @include mq('xll') {
+        font-size: em(75px);
+        line-height: (96px/75px);
+    }
     &--black {
         color: color(black);
     }
