@@ -50,30 +50,20 @@
         font-size: em(42px);
         line-height: em(55px, 42px);
     }
-    @include mq('xll') {
-        font-size: em(75px);
-        line-height: (96px/75px);
-    }
-    &--black {
-        color: color(black);
-    }
 }
 
 .sec-heading {
     position: relative;
-    font-size: em(32px);
+    font-size: em(28px);
     font-weight: $font-weight--lg;
     @include p-el($el: 'after', $el-width: 70px, $el-height: 3px) {
         background-color: $color--seconary;
-        top: 80px;
+        top: 60px;
         left: 0;
-        @include mq('xs') {
-            top: 91px;
-        }
     }
     @include mq('lg') {
-        font-size: em(38px);
-        line-height: em(48px, 38px);
+        font-size: em(34px);
+        line-height: em(42px, 34px);
     }
 }
 

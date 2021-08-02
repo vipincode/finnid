@@ -1,0 +1,43 @@
+// =================================================================================
+// SERVICES DETAILS
+// =================================================================================
+
+#srv {
+    @extend %top-50;
+    @extend %bottom-80;
+}
+
+.srv {
+    .srvlink {
+        @include mq('xl') {
+            padding: 0 25px;
+        }
+        a {
+            display: block;
+            font-size: em(15px);
+            font-weight: $font-weight--md;
+            background-color: $bg-color;
+            color: color(primary);
+            padding: 12px 15px;
+            margin: 6px;
+            @include mq('md') {
+                border-right: 3px solid $color--seconary;
+            }
+            @include mq('lg') {
+                font-size: em(18px);
+            }
+        }
+        a.is-active {
+            background-color: $color--seconary;
+            color: $white;
+        }
+    }
+    .srvcontent {
+        .acc_panel {
+            display: none;
+        }
+        .acc_panel.is-active {
+            display: block;
+        }
+    }
+}

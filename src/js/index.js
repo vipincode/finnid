@@ -4,7 +4,6 @@
 
 import Swiper from 'swiper/bundle';
 
-
 // CAROUSEL ONE[1]
 const swiper1 = new Swiper('.swiper1', {
     slidesPerView: 1,
@@ -78,6 +77,22 @@ const swiper3 = new Swiper(".swiper3", {
             slidesPerView: 4
         }
     }
+});
+
+// CAROUSEL FOUR[4]
+
+const swiper4 = new Swiper(".swiper4", {
+    spaceBetween: 30,
+    effect: "fade",
+    centeredSlides: true,
+    autoplay: {
+        delay: 2500,
+        disableOnInteraction: false,
+    },
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+    },
 });
 
 // ============================================================
@@ -166,9 +181,9 @@ if(way1) {
         element: way1,
         handler: function(direction) {
             if(direction === "up") {
-            count1.reset();
+                count1.reset();
             } else {
-            count1.start();
+                count1.start();
             }
         },
         offset: '75%'
@@ -180,9 +195,9 @@ if(way2) {
         element: way2,
         handler: function(direction) {
             if(direction === "up") {
-            count2.reset();
+                count2.reset();
             } else {
-            count2.start();
+                count2.start();
             }
         },
         offset: '75%'
@@ -195,9 +210,9 @@ if(way3) {
         element: way3,
         handler: function(direction) {
             if(direction === "up") {
-            count3.reset();
+                count3.reset();
             } else {
-            count3.start();
+                count3.start();
             }
         },
         offset: '75%'
@@ -209,9 +224,9 @@ if(way4) {
         element: way4,
         handler: function(direction) {
             if(direction === "up") {
-            count4.reset();
+                count4.reset();
             } else {
-            count4.start();
+                count4.start();
             }
         },
         offset: '75%'
@@ -226,7 +241,7 @@ import 'readmore-js/readmore';
 
 $('.article').readmore({ 
     speed: 100, 
-    collapsedHeight: 50,
+    collapsedHeight: 75,
     heightMargin: 16,
     blockCSS: 'display: block; width: 100%;',
     embedCSS: false,
@@ -240,20 +255,112 @@ $('.article').readmore({
 // ============================================================
 
 import "../../node_modules/lity/dist/lity";
-$(document).on('lity:ready', function(event, instance) {
-    console.log('Lightbox ready');
-});
 
 // ============================================================
-// FAQS
+// VERTICLE MENU TAB
 // ============================================================
+const srvMain = document.querySelector('.srv');
+const srvLinks = document.querySelectorAll('.srvlink a');
+const srvContent = document.querySelectorAll('.acc_panel');
 
-const drpID= document.querySelectorAll('#drpId');
-
-for(let i = 0; i < drpID.length; i++) {
-    drpID[i].addEventListener('click', (e) => {
-        e.preventDefault();
-        drpID[i].classList.toggle('icon-active');
-        drpID[i].nextElementSibling.classList.toggle('toggle');
+if(srvMain) {
+    srvMain.addEventListener('click', (e) => {
+        if(e.target.getAttribute('attr')) {
+            e.preventDefault();
+            _removeActive();
+            if(e.target.className == 'is-active') {
+                e.target.classList.remove('is-active');        
+            } else {
+                e.target.classList.add('is-active');
+            }
+            const linkAttr = e.target.getAttribute('attr');
+            for(let i = 0; i < srvContent.length; i++) {
+               if(srvContent[i].id === linkAttr) {
+                   srvContent[i].classList.add('is-active');
+               } else {
+                srvContent[i].classList.remove('is-active');  
+               }
+            }
+        }
     })
 }
+
+function _removeActive() {
+    for (let i = 0; i < srvLinks.length; i++) {
+        srvLinks[i].classList.remove('is-active')
+    }
+}
+
+// ============================================================
+// HORIZONTAL ACCORDIAN
+// ============================================================
+const accordianID = document.querySelectorAll('.acc__id');
+const accordianContent = document.querySelectorAll('.acc__content');
+
+if(accordianID) {
+    for(let i = 0; i < accordianID.length; i++) {
+        accordianID[i].addEventListener('click', (e) => {
+            const accPanel = e.target.nextElementSibling;
+            if(accPanel.className === 'acc__content acc-active') {
+                e.target.classList.remove('js__active');
+                accPanel.classList.remove('acc-active');
+            } else {
+                _removePlusMisun();
+                _removeAccActive();  
+                e.target.classList.add('js__active');  
+                accPanel.classList.add('acc-active');
+            }
+        })
+    }
+}
+function _removeAccActive() {
+    for(let i = 0; i < accordianContent.length; i += 1) {
+        accordianContent[i].classList.remove('acc-active');
+    }
+}
+function _removePlusMisun() {
+    for(let i = 0; i < accordianID.length; i += 1) {
+        accordianID[i].classList.remove('js__active');
+    }
+}
+
+// ============================================================
+// HORIZONTAL MENU TABS
+// ============================================================
+const tabs = document.querySelector(".tbs");
+const tabsButton = document.querySelectorAll(".tbs__button button");
+const tabsPanel = document.querySelectorAll(".tbs__panel--item");
+
+if(tabs) {
+    tabs.addEventListener('click', (e)=> {
+        e.preventDefault();
+        if(e.target.tagName == 'BUTTON') {
+            _removeButtonActive();
+            e.target.classList.toggle('br-active');
+            let btnAttr = e.target.getAttribute("attr");
+            for(let i = 0; i < tabsPanel.length; i++) {
+               if(tabsPanel[i].id === btnAttr) {
+                    tabsPanel[i].classList.add('tbs--active');
+               } else {
+                    tabsPanel[i].classList.remove('tbs--active');
+               }
+            }
+        }
+    })
+}
+
+function _removeButtonActive() {
+    for(let i = 0; i < tabsButton.length; i++) {
+        tabsButton[i].classList.remove('br-active');
+    }
+}
+
+// ============================================================
+// LIGHTBOX
+// ============================================================
+
+// import '../../node_modules/lightbox2/dist/js/lightbox';
+// lightbox.option({
+//     'resizeDuration': 200,
+//     'wrapAround': true
+// })

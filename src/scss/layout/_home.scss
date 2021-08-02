@@ -11,28 +11,51 @@
     @extend %center;
     .heading {
         @extend %bar-center;
+        .sec-heading {
+            &:after {
+                top: 145px;
+                @include mq('md') {
+                    top: 108px
+                }
+                @include mq('xll') {
+                    top: 74px
+                }
+            }
+        }
     }
+    
     &-content {
         @extend %top-50;
     }
     &-card {
+        // @include flexy($dir: column);
+        // flex: 1 auto;
         background-color: $white;
         padding: 20px;
         border-radius: $br-radius;
         box-shadow: 0 0 10px rgba($black, 0.07);
         @extend %transition;
         h3 {
-            font-size: em(19px);
-            line-height: (25px/19px);
-            margin-bottom: em(9px, 19px);
+            font-size: em(17px);
+            line-height: (25px/17px);
+            margin-bottom: em(5px, 17px);
             font-weight: $font-weight--lg;
         }
-
+        p {
+            font-size: em(15px);
+        }
         a {
-            color: $black;
+            display: inline-block;
+            color: $color--seconary;
+            font-size: em(13px);
+            line-height: (22px/13px);
+            font-weight: $font-weight--lg;
+            padding: 1px 4px;
+            margin-top: 8px;
         }
     }
 }
+
 
 // ==========================================================================
 //               HOME [FEATURE]
@@ -47,6 +70,14 @@
     .heading {
         @extend %center;
         @extend %bar-center;
+        .sec-heading {
+            &::after {
+                top: 140px;
+                @include mq('md') {
+                    top: 105px;
+                }
+            }
+        }
     }
     &-content {
         @extend %top-50;
@@ -86,30 +117,49 @@
 }
 
 .whyus {
-  position: relative;
-  padding: 50px 0px;
-  @include mq('xxl') {
-      padding: 80px 0px;
-  }
-  @include mq('xll') {
-    padding: 100px 0px;
-}
-  &-heading {
-      @extend %top;
-      p {
-        font-size: em(17px);
-        font-weight: $font-weight--sm;
-        line-height: em(35px, 17px);
-        @extend %top-50;
-      }
-  }
-  &-content {
-      p {
-          margin-top: 15px;
-          font-size: em(16px);
-          line-height: (28px/16px);
-      }
-  }
+    position: relative;
+    padding-bottom: 30px;
+    @include mq('xxl') {
+        padding: 80px 0px;
+    }
+    @include mq('xll') {
+        padding: 100px 0px;
+    }
+    &-heading {
+        @extend %top;
+        p {
+            font-size: em(17px);
+            font-weight: $font-weight--sm;
+            line-height: em(35px, 17px);
+            margin-bottom: 20px;
+            margin-top: 28px;
+        }
+    }
+    &-content {
+        h2 {
+           @include mq('xs') {
+               font-size: em(21px);
+           }
+        }
+        p {
+            margin-top: 15px;
+            font-size: em(16px);
+            line-height: (28px/16px);
+        }
+        ul {
+            margin-top: 15px;
+            padding-left: 30px;
+            li {
+                position: relative;
+               
+                @include p-el('before', 18px, 18px) {
+                    content: url('../../images/checked.png');
+                    left: -26px;
+                    top: 4px;
+                }
+            }
+        }
+    }
 }
 
 // ==========================================================================
@@ -129,6 +179,7 @@
         background-color: $white;
         padding: 20px;
         box-shadow: 0 0 10px rgba($black, 0.07);
+        @extend %center;
         h3 {
             font-size: em(19px);
             line-height: (25px/19px);
@@ -277,8 +328,15 @@
 #demo {
     @extend %top-110;
     @extend %bottom-80;
+    @extend %center;
     .btn {
-        @extend %top-30;
+       @extend %top-80;
+       @include mq('lg') {
+        font-size: em(28px);
+        border-radius: 45px;
+        padding-left: 50px;
+        padding-right: 50px;
+       }
     }
 }
 
@@ -304,6 +362,13 @@
 .news {
     &-heading {
         @extend %bottom-80;
+        .sec-heading {
+            &::after {
+                @include mq('xs') {
+                    top: 105px;
+                }
+            }
+        }
     }
 
     &-list {

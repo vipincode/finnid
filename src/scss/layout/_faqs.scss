@@ -19,48 +19,5 @@
             max-width: 800px;
             margin: 50px auto 0;
         }
-        #drpId {
-            cursor: pointer;
-            display: block;
-            width: 100%;
-            border: none;
-            padding: 8px 20px;
-            font-size: em(17px);
-            line-height: (32px/17px);
-            font-weight: $font-weight--md;
-            text-align: left;
-            background-color: color(primary);
-            color: $white;
-            border-bottom: 1px solid color(primary, x-light);
-            position: relative;
-            @include icons('after', 30px, 30px) {
-                content: '\f107';
-                color: $white;
-                font-size: em(17px);
-                right: 10px;
-                top: 8px;
-            }
-        }
-        #drpContent {
-            padding: 20px;
-            background-color: $bg-color;
-            display: none;
-            h3 {
-                font-size: em(16px); 
-                font-weight: $font-weight--md;  
-            }
-        }
-    }
-}
-
-#drpContent.toggle {
-    display: block;
-}
-
-#drpId.icon-active {
-    &:after {
-        top: 10px;
-        right: 28px;
-        transform: rotate(-180deg);
     }
 }

@@ -112,11 +112,17 @@
             }
         }
     }
+
+    .dipti-logo {
+        @extend %top-50;
+        @extend %bottom-50;
+       @extend %center;
+    }
 }
 
 .copyrights {
     color: $white;
-    margin-top: 70px;
+    @extend %top-50;
     padding: 30px 30px 7px;
     text-align: center;
     border-top: 1px dotted color(primary, light);

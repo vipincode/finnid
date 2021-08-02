@@ -26,6 +26,16 @@
 .swiper-button-next:after {
     font-size: em(28px);
 }
+.swiper-button-prev, .swiper-container-rtl .swiper-button-next {
+   @include mq('xll') {
+    left: 70px;
+   }
+}
+.swiper-button-next, .swiper-container-rtl .swiper-button-prev {
+    @include mq('xll') {
+        right: 70px;
+    }
+}
 
 // ===========================================================================================
 //               SPECIFIC RULE [SECTIONS]
@@ -38,8 +48,12 @@
             position: initial;
             padding: 20px 0px;
             .swiper-pagination {
-                bottom: -40px;
+                bottom: -16px;
             }
+            // .swiper-slide {
+            //     height: auto;
+            //     @include flexy($wrap: wrap);
+            // }
         }
     }
 }
